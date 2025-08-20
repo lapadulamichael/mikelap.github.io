@@ -1,39 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Michael Lapadula | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michael Lapadula • Portfolio</title>
+  <meta name="description" content="Portfolio of Michael Lapadula — Software Engineering student at UQAM. Projects, skills, and contact links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; line-height: 1.6; }
-    h1, h2 { color: #2c3e50; }
-    a { color: #2980b9; text-decoration: none; }
-    .project { margin-bottom: 2rem; }
+    :root {
+      --bg: #0b0d11;           /* page background (dark slate) */
+      --panel: #11151c;        /* card/header background */
+      --muted: #a2a9b6;        /* secondary text */
+      --text: #e6eaf2;         /* primary text */
+      --accent: #5cc8ff;       /* links, buttons */
+      --accent-2: #9dffb0;     /* subtle gradient mix */
+      --ring: rgba(92, 200, 255, 0.45);
+      --maxw: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(100%, var(--maxw)); margin-inline: auto; padding-inline: 24px; }
+
+    /* --- Top banner (LinkedIn-style hero) --- */
+    .hero {
+      position: relative; isolation: isolate; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.06);
+      background: linear-gradient(180deg, #18202c 0%, #121720 100%);
+    }
+    .cover {
+      height: 180px; border-radius: 0 0 16px 16px; 
+      background: radial-gradient(1200px 400px at 20% 0%, rgba(92, 200, 255, .20), transparent 55%),
+                  radial-gradient(800px 300px at 80% 10%, rgba(157, 255, 176, .18), transparent 60%),
+                  linear-gradient(180deg, #1a2431 0%, #141a24 100%);
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+    }
+    .profile-wrap { display: grid; grid-template-columns: 208px 1fr; gap: 16px; align-items: end; margin-top: -52px; }
+    .avatar {
+      width: 208px; height: 208px; border-radius: 50%; object-fit: cover; 
+      border: 3px solid #0f131a; outline: 3px solid var(--ring); background:#222;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .name-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .name { font-size: clamp(24px, 4vw, 36px); line-height: 1.15; font-weight: 700; }
+    .title { color: var(--muted); margin-top: 4px; }
+    .meta { display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; color: var(--muted); }
+    .pill { display:inline-flex; align-items:center; gap:8px; background: #0f131a; border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:999px; font-size: 14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background:#0f131a; color:var(--text); text-decoration:none; font-weight:600; }
+    .btn.primary { background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%); color:#0a0f15; border-color: transparent; }
+    .btn:hover { filter: brightness(1.05); }
+
+    /* --- Sections --- */
+    section { padding-block: 36px; }
+    h2 { font-size: 22px; margin: 0 0 16px; }
+
+    .projects { display:grid; grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) ); gap:16px; }
+    .card { background: var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:18px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .stack { color: var(--muted); font-size: 14px; margin: 8px 0 12px; }
+    .links { display:flex; gap:12px; flex-wrap: wrap; }
+
+    footer { padding: 30px 0 60px; color: var(--muted); text-align: center; }
+
+    /* Small screens */
+    @media (max-width: 520px){
+      .profile-wrap { grid-template-columns: 76px 1fr; margin-top: -38px; }
+      .avatar { width: 76px; height: 76px; }
+    }
   </style>
 </head>
 <body>
-  <h1>Michael Lapadula</h1>
-  <p>Software Engineering Student @ UQAM | Passionate about C, C++, Java, web development, and databases.</p>
+  <header class="hero">
+    <div class="cover"></div>
+    <div class="container" style="margin-top:-84px;">
+      <div class="profile-wrap">
+        <img class="avatar" src="profile_pic.jpg" alt="Headshot of Michael Lapadula" />
+        <div>
+          <div class="name-row">
+            <div class="name">Michael Lapadula</div>
+          </div>
+          <div class="title">Full‑time Software Engineering student @ UQAM • Web, C/C++, Java, Databases</div>
+          <div class="meta">
+            <span class="pill" title="Location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.686-7-11a7 7 0 0 1 14 0c0 5.314-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+              Montreal, QC
+            </span>
+            <span class="pill" title="Education">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10L12 5l9 5-9 5-9-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 12v4c0 1.657 2.686 3 6 3s6-1.343 6-3v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+              UQAM — B.Eng. (Sofware Engineering)
+            </span>
+            <span class="pill" title="Looking for">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>
+              Seeking internships
+            </span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="mailto:mikelap123@icloud.com" rel="noopener">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/michael-lapadula-469a552a3/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/lapadulamichael" target="_blank" rel="noopener">GitHub</a>
+            <!-- Optional: Resume link
+            <a class="btn" href="/Michael_Lapadula_Resume.pdf" target="_blank" rel="noopener">Résumé</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>SoccerHub</h3>
-    <p>Web app to manage soccer leagues, tournaments, and reservations.</p>
-    <p><strong>Stack:</strong> FastAPI, PostgreSQL (Supabase), HTML/JS</p>
-    <p><a href="https://gitlab.com/...">GitLab</a></p>
-  </div>
+  <main class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Description
+      </p>
+    </section>
 
-  <div class="project">
-    <h3>SoundTracker (OCaml)</h3>
-    <p>Music tracker that compiles structured compositions into WAV files using functional synthesis.</p>
-    <p><strong>Stack:</strong> OCaml</p>
-    <p><a href="https://gitlab.com/...">GitLab</a></p>
-  </div>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="card">
+          <h3>Example 1</h3>
+          <p>Decription</p>
+          <div class="stack"><strong>Stack:</strong> stacks</div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">GitHub</a>
+            <a href="#" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Example 2</h3>
+          <p>Description</p>
+          <div class="stack"><strong>Stack:</strong> stacks</div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Example 3</h3>
+          <p>Description</p>
+          <div class="stack"><strong>Stack:</strong> stacks</div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Example 4</h3>
+          <p>Description</p>
+          <div class="stack"><strong>Stack:</strong> stacks</div>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <h2>Contact</h2>
-  <ul>
-    <li>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-    <li>LinkedIn: <a href="https://linkedin.com/in/michaellapadula">linkedin.com/in/michaellapadula</a></li>
-    <li>GitHub: <a href="https://github.com/mikelap">github.com/mikelap</a></li>
-  </ul>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <strong>Email:</strong> <a href="mailto:mikelap123@icloud.com">mikelap123@icloud.com</a><br>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/michael-lapadula-469a552a3/" target="_blank" rel="noopener">linkedin.com/in/michael-lapadula-469a552a3</a><br>
+        <strong>GitHub:</strong> <a href="https://github.com/lapadulamichael" target="_blank" rel="noopener">github.com/lapadulamichael</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Michael Lapadula</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
