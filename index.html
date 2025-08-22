@@ -87,6 +87,12 @@
       .profile-wrap { grid-template-columns: 76px 1fr; margin-top: -38px; }
       .avatar { width: 76px; height: 76px; }
     }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
   </style>
 </head>
 <body>
@@ -99,20 +105,34 @@
           <div class="name-row">
             <div class="name">Michael Lapadula</div>
           </div>
-          <div class="title">Full-time Software Engineering student @ UQAM • Web, C/C++, Java, Databases</div>
+          <div class="title">Software Engineering student @ UQAM • Web, C/C++, Java, Functional Programming, Databases</div>
           <div class="meta">
-            <span class="pill" title="Location">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.686-7-11a7 7 0 0 1 14 0c0 5.314-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-              Montreal area, QC
-            </span>
-            <span class="pill" title="Education">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10L12 5l9 5-9 5-9-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 12v4c0 1.657 2.686 3 6 3s6-1.343 6-3v-4" stroke="currentColor" stroke-width="1.5"/></svg>
-              UQAM — B.Eng. (Software Engineering)
-            </span>
-            <span class="pill" title="Looking for">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>
-              Seeking an internship
-            </span>
+            <!-- Row 1 -->
+            <div class="pill-row">
+              <span class="pill" title="Location">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.686-7-11a7 7 0 0 1 14 0c0 5.314-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                Montreal area, QC
+              </span>
+              <span class="pill" title="Education">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10L12 5l9 5-9 5-9-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 12v4c0 1.657 2.686 3 6 3s6-1.343 6-3v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+                UQAM — B.Eng. (Software Engineering)
+              </span>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="pill-row">
+              <span class="pill" title="Languages">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                Bilingual – English & French
+              </span>
+              <span class="pill" title="Looking for">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>
+                Seeking an internship
+              </span>
+            </div>
           </div>
           <div class="actions">
             <a class="btn primary" href="#projects">View Projects</a>
@@ -167,7 +187,7 @@
           <div class="footer">
             <div class="stack"><strong>Stack:</strong> OCaml</div>
             <div class="links">
-              <a href="https://github.com/lapadulamichael/Functionnal-Programming/tree/main/SoundTracker" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/lapadulamichael/Functional-Programming/tree/main/SoundTracker" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </article>
@@ -191,7 +211,7 @@
           <div class="footer">
             <div class="stack"><strong>Stack:</strong> Prolog</div>
             <div class="links">
-              <a href="https://github.com/lapadulamichael/Functionnal-Programming/tree/main/Gear_Transmission_Simulator" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/lapadulamichael/Functional-Programming/tree/main/Gear_Transmission_Simulator" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </article>
@@ -219,6 +239,20 @@
               <a href="https://github.com/lapadulamichael/Data-Structures-in-Cpp/tree/main/AVLTree" target="_blank" rel="noopener">AVLTree</a>
               <a href="https://github.com/lapadulamichael/Data-Structures-in-Cpp/tree/main/TreeMap" target="_blank" rel="noopener">TreeMap</a>
               <a href="https://github.com/lapadulamichael/Data-Structures-in-Cpp/tree/main/Digraph" target="_blank" rel="noopener">Digraph</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="content">
+            <h3>Formation – Training Validator</h3>
+            <p>Java CLI app that validates JSON training declarations for professional orders and generates reports. 
+              Statistics of processed declarations can also be displayed or reset. Developed as a team of two.
+            </p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> Java, Maven, Gson, Apache Commons IO, JUnit</div>
+            <div class="links">
+              <a href="https://gitlab.info.uqam.ca/bousselmi.mohamed_yassine/inf2050-a24-projet-equipe8" target="_blank" rel="noopener">GitLab</a>
             </div>
           </div>
         </article>
