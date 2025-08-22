@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0d11;           /* page background (dark slate) */
-      --panel: #11151c;        /* card/header background */
-      --muted: #a2a9b6;        /* secondary text */
-      --text: #e6eaf2;         /* primary text */
-      --accent: #5cc8ff;       /* links, buttons */
-      --accent-2: #9dffb0;     /* subtle gradient mix */
+      --bg: #0b0d11;
+      --panel: #11151c;
+      --muted: #a2a9b6;
+      --text: #e6eaf2;
+      --accent: #5cc8ff;
+      --accent-2: #9dffb0;
       --ring: rgba(92, 200, 255, 0.45);
       --maxw: 1080px;
     }
@@ -29,7 +29,6 @@
     a:hover { text-decoration: underline; }
     .container { width: min(100%, var(--maxw)); margin-inline: auto; padding-inline: 24px; }
 
-    /* --- Top banner (LinkedIn-style hero) --- */
     .hero {
       position: relative; isolation: isolate; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.06);
       background: linear-gradient(180deg, #18202c 0%, #121720 100%);
@@ -57,19 +56,33 @@
     .btn.primary { background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%); color:#0a0f15; border-color: transparent; }
     .btn:hover { filter: brightness(1.05); }
 
-    /* --- Sections --- */
     section { padding-block: 36px; }
     h2 { font-size: 22px; margin: 0 0 16px; }
 
     .projects { display:grid; grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) ); gap:16px; }
-    .card { background: var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:18px; }
+    .card {
+      background: var(--panel);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:14px;
+      padding:18px;
+
+      display: flex;
+      flex-direction: column;
+    }
     .card h3 { margin: 0 0 6px; font-size: 18px; }
     .stack { color: var(--muted); font-size: 14px; margin: 8px 0 12px; }
     .links { display:flex; gap:12px; flex-wrap: wrap; }
 
+    .card .content {
+      flex: 1;
+    }
+
+    .card .footer {
+      margin-top: auto;
+    }
+
     footer { padding: 30px 0 60px; color: var(--muted); text-align: center; }
 
-    /* Small screens */
     @media (max-width: 520px){
       .profile-wrap { grid-template-columns: 76px 1fr; margin-top: -38px; }
       .avatar { width: 76px; height: 76px; }
@@ -86,19 +99,19 @@
           <div class="name-row">
             <div class="name">Michael Lapadula</div>
           </div>
-          <div class="title">Full‑time Software Engineering student @ UQAM • Web, C/C++, Java, Databases</div>
+          <div class="title">Full-time Software Engineering student @ UQAM • Web, C/C++, Java, Databases</div>
           <div class="meta">
             <span class="pill" title="Location">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.686-7-11a7 7 0 0 1 14 0c0 5.314-7 11-7 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
-              Montreal, QC
+              Montreal area, QC
             </span>
             <span class="pill" title="Education">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10L12 5l9 5-9 5-9-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 12v4c0 1.657 2.686 3 6 3s6-1.343 6-3v-4" stroke="currentColor" stroke-width="1.5"/></svg>
-              UQAM — B.Eng. (Sofware Engineering)
+              UQAM — B.Eng. (Software Engineering)
             </span>
             <span class="pill" title="Looking for">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>
-              Seeking internships
+              Seeking an internship
             </span>
           </div>
           <div class="actions">
@@ -119,10 +132,10 @@
       <p>
         I'm a third-year Software Engineering student with a good base in object-oriented programming (Java, C and C++),
         web development, data structures, databases, functional programming and more. Over the past two years I've 
-        successfuly completed over 20 projects ranging from low-level systems programs to full-semester, deployable, 
+        successfully completed over 20 projects ranging from low-level systems programs to full-semester, deployable, 
         database-driven web applications. 
         <br><br>
-        My focus is now on gaining real-world experience through internships where I can apply the skills that I have recently developped. 
+        My focus is now on gaining real-world experience through internships where I can apply the skills that I have recently developed. 
         I'm eager to keep learning and to collaborate as a team to produce high-quality and reliable software.
       </p>
     </section>
@@ -131,58 +144,82 @@
       <h2>Projects</h2>
       <div class="projects">
         <article class="card">
-          <h3>Kover app - Antenna placement optimizer</h3>
-          <p>A commandline application that models scenes made of buildings
-            and antennas, and provides tools to analyse and measure signal coverage of the scene's elements. 
-        </p>
-          <div class="stack"><strong>Stack:</strong> C, Make, Bats</div>
-          <div class="links">
-            <a href="https://github.com/lapadulamichael/kover1" target="_blank" rel="noopener">Sprint 1</a>
-            <a href="https://github.com/lapadulamichael/kover2" target="_blank" rel="noopener">Sprint 2</a>
-            <a href="https://github.com/lapadulamichael/kover3" target="_blank" rel="noopener">Sprint 3</a>
+          <div class="content">
+            <h3>Kover app - Antenna placement optimizer</h3>
+            <p>A command-line application that models scenes made of buildings
+              and antennas, and provides tools to analyze and measure signal coverage of the scene's elements. 
+            </p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> C, Make, Bats</div>
+            <div class="links">
+              <a href="https://github.com/lapadulamichael/kover1" target="_blank" rel="noopener">Sprint 1</a>
+              <a href="https://github.com/lapadulamichael/kover2" target="_blank" rel="noopener">Sprint 2</a>
+              <a href="https://github.com/lapadulamichael/kover3" target="_blank" rel="noopener">Sprint 3</a>
+            </div>
           </div>
         </article>
         <article class="card">
-          <h3>SoundTracker - OCaml</h3>
-          <p>Description</p>
-          <div class="stack"><strong>Stack:</strong> OCaml</div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="content">
+            <h3>SoundTracker - OCaml</h3>
+            <p>Music tracker that compiles structured compositions into WAV files using functional synthesis.</p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> OCaml</div>
+            <div class="links">
+              <a href="https://github.com/lapadulamichael/SoundTracker" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </article>
         <article class="card">
-          <h3>Sudoku validator</h3>
-          <p>Description</p>
-          <div class="stack"><strong>Stack:</strong> C, POSIX Threads</div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="content">
+            <h3>Sudoku validator</h3>
+            <p>Multi-threaded validator for Sudoku.</p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> C, POSIX Threads</div>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </article>
         <article class="card">
-          <h3>Gear transmission simulator</h3>
-          <p>Description</p>
-          <div class="stack"><strong>Stack:</strong> Prolog</div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="content">
+            <h3>Gear transmission simulator</h3>
+            <p>Logic-based simulator that models gear transmissions using Prolog.</p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> Prolog</div>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </article>
         <article class="card">
-          <h3>SoccerHub - Field Management web app</h3>
-          <p>Description</p>
-          <div class="stack"><strong>Stack:</strong> FastAPI, PostgreSQL(Supabase), JS/HTML/CSS</div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <div class="content">
+            <h3>SoccerHub - Field Management web app</h3>
+            <p>Web app to manage soccer leagues, tournaments, and reservations.</p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> FastAPI, PostgreSQL (Supabase), JS/HTML/CSS</div>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
           </div>
         </article>
         <article class="card">
-          <h3>Data Structures implementation - C++</h3>
-          <p>Description</p>
-          <div class="stack"><strong>Stack:</strong> C++, Make</div>
-          <div class="links">
-            <a href="#" target="_blank" rel="noopener">BigInt</a>
-            <a href="#" target="_blank" rel="noopener">AVLTree</a>
-            <a href="#" target="_blank" rel="noopener">TreeMap</a>
-            <a href="#" target="_blank" rel="noopener">Digraph</a>
+          <div class="content">
+            <h3>Data Structures implementation</h3>
+            <p>Implementations of core data structures and algorithms in C++.</p>
+          </div>
+          <div class="footer">
+            <div class="stack"><strong>Stack:</strong> C++, Make</div>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">BigInt</a>
+              <a href="#" target="_blank" rel="noopener">AVLTree</a>
+              <a href="#" target="_blank" rel="noopener">TreeMap</a>
+              <a href="#" target="_blank" rel="noopener">Digraph</a>
+            </div>
           </div>
         </article>
       </div>
